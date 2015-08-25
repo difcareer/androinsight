@@ -17,8 +17,8 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := class-loader
-LOCAL_SRC_FILES := class-loader.cpp
+LOCAL_MODULE    := class-fetcher
+LOCAL_SRC_FILES := class-fetcher.cpp
 
 LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -llog
 
