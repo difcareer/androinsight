@@ -10,5 +10,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.ClassLoaderActivity"/>
+        <activity android:name=".ui.ClassActivity"/>
+        <activity android:name=".ui.MethodActivity"/>
+        <activity android:name=".ui.MethodDetailActivity"/>
+
     </application>
 </manifest>

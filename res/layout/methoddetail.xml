@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        <TableRow>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stack"
+                    android:id="@+id/stack"/>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="before_watch"
+                    android:id="@+id/before_watch"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="after_watch"
+                    android:id="@+id/after_watch"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="before_set_temp"
+                    android:id="@+id/before_set_temp"/>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="before_set_perm"
+                    android:id="@+id/before_set_perm"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="before_set_cond"
+                    android:id="@+id/before_set_cond"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="after_set_temp"
+                    android:id="@+id/after_set_temp"/>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="after_set_perm"
+                    android:id="@+id/after_set_perm"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="after_set_cond"
+                    android:id="@+id/after_set_cond"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

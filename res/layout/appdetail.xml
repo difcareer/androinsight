@@ -21,6 +21,25 @@
                     android:text="暴露的组件"
                     android:id="@+id/exposed_comp"/>
         </TableRow>
+        <TableRow>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="激活xposed"
+                    android:id="@+id/enable_xposed"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="禁用xposed"
+                    android:id="@+id/disable_xposed"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看classloader"
+                    android:id="@+id/classloader"/>
+        </TableRow>
     </TableLayout>
 </LinearLayout>
 

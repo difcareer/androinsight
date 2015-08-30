@@ -27,11 +27,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Created by andr0day on 2015/3/18.
- */
+
 public class AppInfoActivity extends Activity {
-    private static final String TAG = "AppInfoActivity";
 
     private LayoutInflater mLayoutInflater;
 
@@ -170,7 +167,7 @@ public class AppInfoActivity extends Activity {
                     viewHolder.appName.append(" [桌面]");
                 } else if (AppUtil.isInput(packageInfo, inputs) && !AppUtil.isHome(packageInfo, homes)) {
                     viewHolder.appName.append(" [输入法]");
-                } else if(AppUtil.isHome(packageInfo,homes) && AppUtil.isInput(packageInfo,inputs)){
+                } else if (AppUtil.isHome(packageInfo, homes) && AppUtil.isInput(packageInfo, inputs)) {
                     viewHolder.appName.append(" [桌面、输入法]");
                 }
 
