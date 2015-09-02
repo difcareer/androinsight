@@ -1,7 +1,7 @@
 package com.andr0day.andrinsight.common;
 
 import android.util.Log;
-import com.andr0day.xposed.XposedMain;
+import com.andr0day.andrinsight.xposed.XposedMain;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -27,20 +27,20 @@ public class XposedLogUtil {
     public static void init(String pkgName) {
         try {
             if (eventWriter == null) {
-                eventFile = new File(XposedUtil.XPOSED_FULL_PATH + "/" + pkgName + "/" + XposedUtil.EVENT);
+                eventFile = new File(XposedConstant.XPOSED_FULL_PATH + "/" + pkgName + "/" + XposedConstant.EVENT);
                 eventWriter = new PrintWriter(new FileWriter(eventFile, true));
                 eventFile.setReadable(true, false);
                 eventFile.setWritable(true, false);
                 event("log init ...");
 
-                logFile = new File(XposedUtil.XPOSED_FULL_PATH + "/" + pkgName + "/" + XposedUtil.LOG);
+                logFile = new File(XposedConstant.XPOSED_FULL_PATH + "/" + pkgName + "/" + XposedConstant.LOG);
                 logWriter = new PrintWriter(new FileWriter(logFile, true));
                 logFile.setReadable(true, false);
                 logFile.setWritable(true, false);
                 log("log init ...");
             }
         } catch (Exception e) {
-            Log.e(XposedUtil.TAG, "init", e);
+            Log.e(XposedConstant.TAG, "init", e);
         }
 
         new Thread(new Runnable() {
@@ -105,7 +105,7 @@ public class XposedLogUtil {
             try {
                 logFile.createNewFile();
             } catch (IOException e) {
-                Log.e(XposedUtil.TAG, "checkFileSize", e);
+                Log.e(XposedConstant.TAG, "checkFileSize", e);
             }
         }
     }

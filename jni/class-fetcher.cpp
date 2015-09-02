@@ -339,7 +339,7 @@ struct DvmGlobals {
  *   apps/samples/hello-jni/project/src/com/example/hellojni/HelloJni.java
  */
 extern "C" jstring
-Java_com_example_hellojni_HelloJni_stringFromJNI( JNIEnv* env,
+Java_com_andr0day_andrinsight_clazz_Fetcher_stringFromJNI( JNIEnv* env,
                                                   jobject thiz )
 {
 #if defined(__arm__)
@@ -394,7 +394,7 @@ Java_com_example_hellojni_HelloJni_stringFromJNI( JNIEnv* env,
 
 
 extern "C" ClassObject*
-Java_com_example_hellojni_HelloJni_getLoadedClass(JNIEnv* env, jobject thiz, jint index){
+Java_com_andr0day_andrinsight_clazz_Fetcher_getLoadedClass(JNIEnv* env, jobject thiz, jint index){
    void* so = dlopen("/system/lib/libdvm.so", 0);
    void* gDvm_addr = dlsym(so, "gDvm");
    DvmGlobals *gDvm = (DvmGlobals*)gDvm_addr;
@@ -407,7 +407,7 @@ Java_com_example_hellojni_HelloJni_getLoadedClass(JNIEnv* env, jobject thiz, jin
 }
 
 extern "C" jint
-Java_com_example_hellojni_HelloJni_getTableSize(JNIEnv* env, jobject thiz){
+Java_com_andr0day_andrinsight_clazz_Fetcher_getTableSize(JNIEnv* env, jobject thiz){
    void* so = dlopen("/system/lib/libdvm.so", 0);
    void* gDvm_addr = dlsym(so, "gDvm");
    DvmGlobals *gDvm = (DvmGlobals*)gDvm_addr;

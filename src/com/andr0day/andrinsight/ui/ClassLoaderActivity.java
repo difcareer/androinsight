@@ -27,7 +27,7 @@ public class ClassLoaderActivity extends Activity {
         textView.setText("信息采集中，请稍后......");
         setContentView(textView);
         final String pkgName = getIntent().getStringExtra(Act.pkg.name());
-        CommunicationUtil.sendClassloaderBroadcast(this, pkgName);
+        CommunicationUtil.sendClassLoaderBroadcast(this, pkgName);
         IntentFilter intentFilter = new IntentFilter(CommunicationUtil.getHostAction(pkgName));
         registerReceiver(new HostReceiver(new ReceivedCallback() {
             @SuppressWarnings("unchecked")

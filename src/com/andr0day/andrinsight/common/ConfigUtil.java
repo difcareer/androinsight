@@ -13,8 +13,8 @@ public class ConfigUtil {
 
     public static void init(String pkgName) {
         String pkgDir = createSelfDir(pkgName);
-        String logPath = pkgDir + "/" + XposedUtil.LOG;
-        String eventPath = pkgDir + "/" + XposedUtil.EVENT;
+        String logPath = pkgDir + "/" + XposedConstant.LOG;
+        String eventPath = pkgDir + "/" + XposedConstant.EVENT;
         createIfNotExist(logPath);
         RootUtil.safeExecStr("chmod 777 " + logPath);
         createIfNotExist(eventPath);
@@ -28,7 +28,7 @@ public class ConfigUtil {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                Log.e(XposedUtil.TAG, "createIfNotExist", e);
+                Log.e(XposedConstant.TAG, "createIfNotExist", e);
             }
         }
     }
@@ -36,12 +36,12 @@ public class ConfigUtil {
     @SuppressWarnings("all")
     public static void setConfig(String pkgName, String k, String v) {
         String pkgDir = createSelfDir(pkgName);
-        File injectConfig = new File(pkgDir, XposedUtil.INJECT_PKG_CONFIG);
+        File injectConfig = new File(pkgDir, XposedConstant.INJECT_PKG_CONFIG);
         if (!injectConfig.exists()) {
             try {
                 injectConfig.createNewFile();
             } catch (Exception e) {
-                Log.e(XposedUtil.TAG, "createNewFile", e);
+                Log.e(XposedConstant.TAG, "createNewFile", e);
             }
         }
         Properties properties = new Properties();
@@ -51,14 +51,14 @@ public class ConfigUtil {
             properties.store(new FileOutputStream(injectConfig), "");
             RootUtil.safeExecStr("chmod 777 " + injectConfig.getAbsolutePath());
         } catch (IOException e) {
-            Log.e(XposedUtil.TAG, "setConfig", e);
+            Log.e(XposedConstant.TAG, "setConfig", e);
         }
     }
 
     public static String getConfigNormal(String pkgName, String k, String def) {
-        File pkgDir = new File(XposedUtil.XPOSED_FULL_PATH + "/" + pkgName);
+        File pkgDir = new File(XposedConstant.XPOSED_FULL_PATH + "/" + pkgName);
         if (pkgDir.exists()) {
-            File injectConfig = new File(pkgDir, XposedUtil.INJECT_PKG_CONFIG);
+            File injectConfig = new File(pkgDir, XposedConstant.INJECT_PKG_CONFIG);
             if (injectConfig.exists()) {
                 Properties properties = new Properties();
                 try {
@@ -75,7 +75,7 @@ public class ConfigUtil {
     @SuppressWarnings("all")
     public static String getConfig(String pkgName, String k, String def) {
         String pkgDir = createSelfDir(pkgName);
-        File injectConfig = new File(pkgDir, XposedUtil.INJECT_PKG_CONFIG);
+        File injectConfig = new File(pkgDir, XposedConstant.INJECT_PKG_CONFIG);
         if (!injectConfig.exists()) {
             try {
                 injectConfig.createNewFile();
@@ -96,11 +96,11 @@ public class ConfigUtil {
 
     @SuppressWarnings("all")
     private static String createSelfDir(String pkgName) {
-        File xposedDir = new File(XposedUtil.XPOSED_FULL_PATH);
+        File xposedDir = new File(XposedConstant.XPOSED_FULL_PATH);
         if (!xposedDir.exists()) {
             xposedDir.mkdir();
         }
-        RootUtil.safeExecStr("chmod 777 " + XposedUtil.XPOSED_FULL_PATH);
+        RootUtil.safeExecStr("chmod 777 " + XposedConstant.XPOSED_FULL_PATH);
         File pkgDir = new File(xposedDir, pkgName);
         if (!pkgDir.exists()) {
             pkgDir.mkdir();

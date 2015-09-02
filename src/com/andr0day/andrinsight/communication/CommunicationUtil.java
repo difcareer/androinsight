@@ -23,7 +23,7 @@ public class CommunicationUtil {
         return INJECT_PREFIX + pkgName;
     }
 
-    public static void sendClassloaderBroadcast(Context context, String pkgName) {
+    public static void sendClassLoaderBroadcast(Context context, String pkgName) {
         Intent intent = new Intent();
         intent.setAction(getInjectAction(pkgName));
         intent.putExtra(ACT, Act.classloader.name());
@@ -46,7 +46,7 @@ public class CommunicationUtil {
         context.sendBroadcast(intent);
     }
 
-    public static void sendClassloaderResBroadCast(Context context, String pkgName, String json) {
+    public static void sendClassLoaderResBroadCast(Context context, String pkgName, String json) {
         Intent intent = new Intent();
         intent.setAction(getHostAction(pkgName));
         intent.putExtra(ACT, Act.classloader.name());

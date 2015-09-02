@@ -2,7 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.andr0day.andrinsight">
     <uses-sdk android:minSdkVersion="10" />
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:name=".MyApplication">
+        <meta-data
+                android:name="xposedmodule"
+                android:value="true" />
+        <meta-data
+                android:name="xposeddescription"
+                android:value="an wonderful android tool" />
+        <meta-data
+                android:name="xposedminversion"
+                android:value="30" />
         <activity android:name=".ui.AppInfoActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -15,5 +24,6 @@
         <activity android:name=".ui.MethodActivity"/>
         <activity android:name=".ui.MethodDetailActivity"/>
 
+        <service android:name=".FileModifyService"/>
     </application>
 </manifest>

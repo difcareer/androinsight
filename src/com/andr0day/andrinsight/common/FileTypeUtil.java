@@ -12,7 +12,6 @@ public class FileTypeUtil {
     /**
      * 将文件头转换成16进制字符串
      *
-     * @param 原生byte
      * @return 16进制字符串
      */
     private static String bytesToHexString(byte[] src) {
