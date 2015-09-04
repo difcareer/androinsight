@@ -13,7 +13,7 @@ public class Hookers {
     public static Hookers instance = new Hookers();
 
     private Hookers() {
-        register(ContextHooker.getInstance());
+
     }
 
     public Set<Hooker> hookers = new HashSet<Hooker>();

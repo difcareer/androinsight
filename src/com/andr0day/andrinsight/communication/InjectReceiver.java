@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.andr0day.andrinsight.clazz.Fetcher;
+import com.andr0day.andrinsight.common.ConvertUtil;
 import com.andr0day.andrinsight.xposed.XposedMain;
 
 import java.lang.reflect.Method;
@@ -38,7 +39,7 @@ public class InjectReceiver extends BroadcastReceiver {
     private void sendClassLoaders() {
         List<String> res = new ArrayList<String>();
         for (ClassLoader cl : Fetcher.getInstance().classLoaders) {
-            res.add(cl.getClass().getCanonicalName());
+            res.add(ConvertUtil.clazzToStr(cl.getClass()));
         }
         CommunicationUtil.sendClassLoaderResBroadCast(XposedMain.context, XposedMain.pkgName, JSON.toJSONString(res));
     }
@@ -48,9 +49,9 @@ public class InjectReceiver extends BroadcastReceiver {
         String cl = intent.getStringExtra(CommunicationUtil.EXT);
         if (!TextUtils.isEmpty(cl)) {
             for (ClassLoader classLoader : Fetcher.getInstance().classLoaders) {
-                if (cl.equals(classLoader.getClass().getCanonicalName())) {
+                if (cl.equals(ConvertUtil.clazzToStr(classLoader.getClass()))) {
                     for (Class it : Fetcher.getInstance().loaderMap.get(classLoader)) {
-                        res.add(it.getCanonicalName());
+                        res.add(ConvertUtil.clazzToStr(it));
                     }
                     break;
                 }
@@ -66,7 +67,7 @@ public class InjectReceiver extends BroadcastReceiver {
         if (clazz != null) {
             Method[] methods = clazz.getDeclaredMethods();
             for (Method it : methods) {
-                res.add(it.toGenericString());
+                res.add(ConvertUtil.methodToStr(it));
             }
         }
         CommunicationUtil.sendMethodResBroadCast(XposedMain.context, XposedMain.pkgName, cl, JSON.toJSONString(res));

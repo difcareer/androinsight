@@ -1,13 +1,11 @@
 package com.andr0day.andrinsight.xposed.hooker;
 
 import android.content.Context;
-import android.content.IntentFilter;
 import android.util.Log;
 import android.widget.Toast;
 import com.andr0day.andrinsight.clazz.Fetcher;
 import com.andr0day.andrinsight.common.HookUtil;
 import com.andr0day.andrinsight.common.XposedConstant;
-import com.andr0day.andrinsight.communication.CommunicationUtil;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 

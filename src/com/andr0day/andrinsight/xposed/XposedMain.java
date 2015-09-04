@@ -11,6 +11,7 @@ import com.andr0day.andrinsight.common.XposedConstant;
 import com.andr0day.andrinsight.common.XposedLogUtil;
 import com.andr0day.andrinsight.communication.CommunicationUtil;
 import com.andr0day.andrinsight.communication.InjectReceiver;
+import com.andr0day.andrinsight.xposed.config.Loader;
 import com.andr0day.andrinsight.xposed.hooker.ContextHookedListener;
 import com.andr0day.andrinsight.xposed.hooker.ContextHooker;
 import com.andr0day.andrinsight.xposed.hooker.Hookers;
@@ -40,6 +41,9 @@ public class XposedMain implements IXposedHookLoadPackage, ContextHookedListener
         if (TextUtils.isEmpty(pkgName)) {
             return;
         }
+
+        Loader.getInstance().startLoad();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -53,7 +57,7 @@ public class XposedMain implements IXposedHookLoadPackage, ContextHookedListener
                     initEnv();
                     startLoopLoad();
 
-                    Hookers.instance.startHook();
+//                    Hookers.instance.startHook();
                 }
             }
         }).start();
