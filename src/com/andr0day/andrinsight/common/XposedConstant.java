@@ -20,7 +20,7 @@ public class XposedConstant {
 
     public static final String XPOSED_BROADCAST_PREFIX = "xposed_broadcast_prefix_";
 
-    public static final String SO_NAME = "libclass-fetcher.so";
+    public static final String SO_NAME = "libclassfetcher.so";
 
     public static final String SO_FULL_PATH = HOST_FULL_PATH + "/files/" + SO_NAME;
 

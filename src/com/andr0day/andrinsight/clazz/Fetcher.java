@@ -24,7 +24,7 @@ public class Fetcher {
         if (instance != null) {
             throw new IllegalArgumentException("already instanced");
         }
-        System.loadLibrary(XposedConstant.SO_FULL_PATH);
+        System.load(XposedConstant.SO_FULL_PATH);
     }
 
     public void loadClasses() {

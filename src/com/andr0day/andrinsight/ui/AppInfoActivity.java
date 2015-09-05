@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.andr0day.andrinsight.R;
+import com.andr0day.andrinsight.clazz.Fetcher;
 import com.andr0day.andrinsight.common.AppUtil;
 import com.andr0day.andrinsight.common.CertUtils;
 import com.andr0day.andrinsight.common.DbHelper;
@@ -39,6 +40,8 @@ public class AppInfoActivity extends Activity {
         textView.setText("信息采集中，请稍后......");
         setContentView(textView);
         new AppInfoCollector(this).execute();
+//        Fetcher.getInstance().loadClasses();   load app test
+
     }
 
     public void onResume() {
